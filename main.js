@@ -14,6 +14,32 @@ const rl = readline.createInterface({
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
 
+  //changes user input to lowercase + deletes spaces in string
+  hand1 = hand1.toLowerCase().trim()
+  hand2 = hand2.toLowerCase().trim()
+
+//if it's not r/p/s
+  if (hand1 != "rock" && hand1 != "paper" && hand1 != "scissors"){
+    return "Invalid Input"
+  }
+  if (hand2 != "rock" && hand2 != "paper" && hand2 != "scissors"){
+    return "Invalid Input"
+  }
+
+  //if it's a tie
+  if (hand1 === hand2){
+    return "It's a tie!"
+  }
+  // hand1 possibilities: r/p, r/s --- p/s, p/r --- s/p, s/r 
+
+  if (hand1 === "rock" && hand2 === "scissors" ||
+      hand1 === "paper" && hand2 === "rock" ||
+      hand1 === "scissors" && hand2 === "paper"){
+        return "Hand one wins!"
+      } else {
+        return "Hand two wins!"
+      }
+
   // Write code here
   // Use the unit test to see what is expected
 
